@@ -1,0 +1,11 @@
+D:\Repositories\caged-bowboys\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Repositories\caged-bowboys\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Repositories\caged-bowboys\Temp\bin\Debug\UnityEditor.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\UnityEngine.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\Mono.Cecil.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\nunit.framework.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\Unity.DataContract.dll
+D:\Repositories\caged-bowboys\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Repositories\caged-bowboys\obj\Debug\Assembly-CSharp.dll
+D:\Repositories\caged-bowboys\obj\Debug\Assembly-CSharp.pdb
