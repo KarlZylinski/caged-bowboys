@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Animator = Assets.Player.Animator;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class PlayerControl : MonoBehaviour
     private Transform _grounded_check_box;
     private bool _grounded;
     private string _player_name;
+	private Animator _animator;
 
     public void Start()
     {
+	    _animator = GetComponent<Animator>();
         _grounded_check_box = transform.FindChild("GroundCheck");
         _grounded = false;
         _player_name = "Player" + PlayerNum;
@@ -36,7 +39,12 @@ public class PlayerControl : MonoBehaviour
         else
             rigidbody2D.velocity = limited_speed;
 
-        rigidbody2D.velocity = new Vector2(Mathf.Clamp(rigidbody2D.velocity.x, -PlayerMaxSpeed, PlayerMaxSpeed), rigidbody2D.velocity.y);
+		rigidbody2D.velocity = new Vector2(Mathf.Clamp(rigidbody2D.velocity.x, -PlayerMaxSpeed, PlayerMaxSpeed), rigidbody2D.velocity.y);
+
+		if (Mathf.Abs(rigidbody2D.velocity.x) > 0.2f)
+			_animator.SetBaseAnimation(_animator.RunSprites, 400);
+		else
+			_animator.SetBaseAnimation(_animator.IdleSprites, 400);
 
 		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }

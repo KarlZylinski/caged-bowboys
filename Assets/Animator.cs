@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Player
@@ -6,6 +7,8 @@ namespace Assets.Player
 	public class Animator : MonoBehaviour
 	{
 		public Sprite[] RunSprites;
+		public Sprite[] IdleSprites;
+		public Vector2[] ArmOffsets;
 		public bool KillWhenDone = false;
 
 		public float AnimationSpeed = 1 / 10.0f;
@@ -16,16 +19,18 @@ namespace Assets.Player
 		private Sprite[] _current_temp_animation;
 		private float _temp_anim_speed;
 		private float _base_anim_speed;
+		private Transform _arm;
 
 		public void Start()
 		{
 			_current_time = 0;
 			_frame_index = 0;
 			_sprite_renderer = GetComponent<SpriteRenderer>();
-			_current_base_animation = RunSprites;
+			_current_base_animation = IdleSprites;
 			_current_temp_animation = null;
 			_temp_anim_speed = AnimationSpeed;
 			_base_anim_speed = AnimationSpeed;
+			_arm = transform.FindChild("Arm");
 		}
 
 		public void Update()
@@ -63,10 +68,25 @@ namespace Assets.Player
 			}
 		}
 
+		private int AnimIndex(Sprite[] sprites)
+		{
+			if (sprites == RunSprites)
+				return 0;
+
+			if (sprites == IdleSprites)
+				return 1;
+
+			throw new NotImplementedException();
+		}
+
 		public void SetBaseAnimation(Sprite[] sprites, float speed)
 		{
 			if (!sprites.Any())
 				return;
+
+			var anim_index = AnimIndex(sprites);
+			var arm_offset = ArmOffsets[anim_index];
+			_arm.transform.localPosition = arm_offset;
 
 			_base_anim_speed = 1 / 5.0f;
 			

@@ -1,16 +1,9 @@
 fileFormatVersion: 2
-guid: 9e4e79e9d12b1334f848c0f6518f0786
+guid: 12f55f6b247817b40bafdbf135a70683
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PlayerRun_5
-    21300002: PlayerRun_6
-    21300004: PlayerRun_7
-    21300006: PlayerRun_8
-    21300008: PlayerRun_9
-    21300010: PlayerRun_0
-    21300012: PlayerRun_1
-    21300014: PlayerRun_2
-    21300016: PlayerRun_3
+    21300000: PlayerIdle_0
+    21300002: PlayerIdle_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,43 +45,23 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: PlayerRun_0
+    - name: PlayerIdle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 39
+        width: 14
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerRun_1
+    - name: PlayerIdle_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 14
         y: 0
-        width: 32
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerRun_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: PlayerRun_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 39
+        width: 14
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
