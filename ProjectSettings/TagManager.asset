@@ -17,11 +17,11 @@ TagManager:
   User Layer 10: Player2
   User Layer 11: Player3
   User Layer 12: Player4
-  User Layer 13: 
-  User Layer 14: 
-  User Layer 15: 
-  User Layer 16: 
-  User Layer 17: 
+  User Layer 13: Player1Bullet
+  User Layer 14: Player2Bullet
+  User Layer 15: Player3Bullet
+  User Layer 16: Player4Bullet
+  User Layer 17: DeadBullet
   User Layer 18: 
   User Layer 19: 
   User Layer 20: 

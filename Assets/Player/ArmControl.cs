@@ -29,7 +29,7 @@ public class ArmControl : MonoBehaviour
 		{
 			var bullet = (GameObject)Instantiate(BulletPrototype);
 			bullet.transform.position = _bullet_spawn_point.transform.position;
-			bullet.layer = 9 + int.Parse(_player_control.PlayerNum) - 1;
+			bullet.layer = 13 + int.Parse(_player_control.PlayerNum) - 1;
 			var direction = (new Vector2(_bullet_spawn_point.transform.position.x, _bullet_spawn_point.transform.position.y) - new Vector2(transform.position.x, transform.position.y)).normalized;
 			bullet.rigidbody2D.AddForce(direction * ShootSpeed);
 			_can_shoot_at = Time.time + ShootCooldown;
