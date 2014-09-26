@@ -8,9 +8,13 @@ public class BulletScript : MonoBehaviour {
 		_trigger = GetComponent<Collider2D>();
 	}
 
-	public void OnTriggerEnter2D(Collider2D other)
+	public void OnColliderEnter2D(Collision2D other)
 	{
-		_trigger.isTrigger = false;
-		_trigger.gameObject.layer = 17;
+		if (!(other.gameObject.layer >= 9 && other.gameObject.layer <= 16))
+		{
+			print("unset");
+			_trigger.isTrigger = false;
+			_trigger.gameObject.layer = 17;
+		}
 	}
 }

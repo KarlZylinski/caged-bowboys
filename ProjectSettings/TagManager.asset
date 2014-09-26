@@ -3,6 +3,8 @@
 --- !u!78 &1
 TagManager:
   tags:
+  - Head
+  - Bullet
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -22,11 +24,11 @@ TagManager:
   User Layer 15: Player3Bullet
   User Layer 16: Player4Bullet
   User Layer 17: DeadBullet
-  User Layer 18: 
-  User Layer 19: 
-  User Layer 20: 
-  User Layer 21: 
-  User Layer 22: 
+  User Layer 18: Player1Head
+  User Layer 19: Player2Head
+  User Layer 20: Player3Head
+  User Layer 21: Player4Head
+  User Layer 22: Blood
   User Layer 23: 
   User Layer 24: 
   User Layer 25: 
