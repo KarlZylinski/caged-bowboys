@@ -1620,6 +1620,7 @@ MonoBehaviour:
   PlayerMaxSpeed: 1
   ClimbDistance: 10
   Dead: 0
+  TimeOfDeath: 0
 --- !u!114 &720636853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2935,6 +2936,7 @@ MonoBehaviour:
   PlayerMaxSpeed: 1
   ClimbDistance: 10
   Dead: 0
+  TimeOfDeath: 0
 --- !u!50 &1349476564
 Rigidbody2D:
   m_ObjectHideFlags: 0

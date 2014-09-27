@@ -17,13 +17,14 @@ public class ArmControl : MonoBehaviour
 	private bool _reloading;
 	public bool DeathHandled;
 	private PlayerGUIScript _gui;
+	private bool _set_shoot_button_state;
 
 	public void Start()
 	{
 		_player_control = transform.parent.GetComponent<PlayerControl>();
 		_gui = GameObject.Find(_player_control.PlayerName() + "GUI").GetComponent<PlayerGUIScript>();
 		_reloading = false;
-		_fire_held_last_frame = false;
+		_fire_held_last_frame = _set_shoot_button_state;
 		_current_barrallel = 0;
 		_loaded = new bool[4];
 		DeathHandled = false;
@@ -101,14 +102,16 @@ public class ArmControl : MonoBehaviour
 
 		if (_player_control.Dead)
 		{
-			if (shoot_pressed)
+			if (Time.time > _player_control.TimeOfDeath + 2.0f)
 			{
 				_player_control.Dead = false;
 				var new_arm = (GameObject)Instantiate(ArmPrototype);
 				new_arm.transform.parent = _player_control.transform;
+				new_arm.transform.localScale = new Vector3(1, 1, 1);
 				_player_control.SetArm(new_arm.transform);
 				_player_control.transform.position = FindSpawnPoint();
 				_player_control.Reset();
+				new_arm.GetComponent<ArmControl>()._set_shoot_button_state = true;
 
 				var new_arm_rigidbody = new_arm.rigidbody2D;
 				var new_arm_collider = new_arm.collider2D;

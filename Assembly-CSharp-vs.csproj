@@ -52,6 +52,7 @@
      <Compile Include="Assets\FollowPlayers.cs" />
      <Compile Include="Assets\GUIScript.cs" />
      <Compile Include="Assets\HeadScript.cs" />
+     <Compile Include="Assets\HitThing.cs" />
      <Compile Include="Assets\Player\ArmControl.cs" />
      <Compile Include="Assets\Player\PlayerControl.cs" />
      <Compile Include="Assets\PlayerGUIScript.cs" />

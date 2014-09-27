@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
 	private Transform _head_check_box;
 	private Transform _arm;
 	public bool Dead;
+	public float TimeOfDeath;
 
 	private Color TintColor()
 	{
@@ -45,6 +46,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void Start()
 	{
+		TimeOfDeath = 0;
 		Dead = false;
 		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 		var tint_color = TintColor();
@@ -98,7 +100,6 @@ public class PlayerControl : MonoBehaviour
 		{
 			if (collider2D.bounds.Intersects(no_climb_area.collider2D.bounds))
 			{
-				print("intersect");
 				return;
 			}
 		}
@@ -109,7 +110,7 @@ public class PlayerControl : MonoBehaviour
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.isKinematic = true;
 
-		var climb_movement = movement;
+		var climb_movement = _arm.GetComponent<ArmControl>().Reloading() ? movement : movement * 0.5f;
 
 		if (HitFrom(_left_check_box, "NoClimb"))
 			climb_movement.x = Mathf.Max(climb_movement.x, 0);
@@ -123,7 +124,7 @@ public class PlayerControl : MonoBehaviour
 		if (HitFrom(_head_check_box, "NoClimb"))
 			climb_movement.y = Mathf.Min(climb_movement.y, 0);
 
-		rigidbody2D.velocity = climb_movement;
+		rigidbody2D.velocity = climb_movement ;
 		_climbed_since_last_frame += climb_movement;
 
 		if (_climbed_since_last_frame.magnitude >= ClimbDistance)
