@@ -21,6 +21,8 @@ namespace Assets.Player
 		private float _temp_anim_speed;
 		private float _base_anim_speed;
 		private Transform _arm;
+		public bool ManualAdvance;
+		private bool _advance;
 
 		public void Start()
 		{
@@ -31,6 +33,8 @@ namespace Assets.Player
 			_current_temp_animation = null;
 			_temp_anim_speed = AnimationSpeed;
 			_base_anim_speed = AnimationSpeed;
+			ManualAdvance = false;
+			_advance = false;
 			_arm = transform.FindChild("Arm");
 		}
 
@@ -39,12 +43,18 @@ namespace Assets.Player
 			PlayAnimation(_current_temp_animation != null, _current_temp_animation ?? _current_base_animation, _current_temp_animation != null ? _temp_anim_speed : _base_anim_speed);
 		}
 
+		public void Advance()
+		{
+			_advance = true;
+		}
+
 		private void PlayAnimation(bool temp_anim, Sprite[] animation, float speed)
 		{
 			_current_time += Time.deltaTime;
 
-			if (_current_time > speed)
+			if ((!ManualAdvance && _current_time > speed) || (ManualAdvance && _advance))
 			{
+				_advance = false;
 				_current_time = 0;
 				++_frame_index;
 
@@ -76,6 +86,9 @@ namespace Assets.Player
 
 			if (sprites == IdleSprites)
 				return 1;
+
+			if (sprites == ClimbSprites)
+				return 2;
 
 			throw new NotImplementedException();
 		}

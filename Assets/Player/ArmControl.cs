@@ -18,12 +18,12 @@ public class ArmControl : MonoBehaviour
 
 	public void Update()
 	{
-		var look = new Vector2(Input.GetAxis(_player_control.GetAxisName("LookX")), Input.GetAxis(_player_control.GetAxisName("LookY")));
+		var look = new Vector2(Input.GetAxis(_player_control.GetInputName("LookX")), Input.GetAxis(_player_control.GetInputName("LookY")));
 
 		if (look.magnitude > 0.4f)
 			transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg);
 			
-		var shoot_pressed = Input.GetAxis(_player_control.GetAxisName("Shoot")) > 0.5f;
+		var shoot_pressed = Input.GetAxis(_player_control.GetInputName("Shoot")) > 0.5f;
 
 		if (shoot_pressed && Time.time > _can_shoot_at)
 		{

@@ -199,6 +199,7 @@ MonoBehaviour:
   PlayerNum: 1
   JumpForce: 1
   PlayerMaxSpeed: 1
+  ClimbDistance: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,6 +244,7 @@ MonoBehaviour:
   - {x: -.0436890088, y: -.132487297}
   KillWhenDone: 0
   AnimationSpeed: .100000001
+  ManualAdvance: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

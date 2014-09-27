@@ -7,50 +7,84 @@ public class PlayerControl : MonoBehaviour
     public string PlayerNum = "1";
     public float JumpForce = 50.0f;
     public float PlayerMaxSpeed = 3.0f;
+	public float ClimbDistance = 50.0f;
     private Transform _grounded_check_box;
     private bool _grounded;
     private string _player_name;
 	private Animator _animator;
+	private bool _climbing;
+	private Vector2 _climbed_since_last_frame;
 
     public void Start()
     {
 	    _animator = GetComponent<Animator>();
         _grounded_check_box = transform.FindChild("GroundCheck");
         _grounded = false;
+	    _climbing = false;
         _player_name = "Player" + PlayerNum;
     }
 
     public void Update()
     {
         _grounded = Physics2D.Linecast(transform.position, _grounded_check_box.position, 1 << LayerMask.NameToLayer("Ground")).collider != null && rigidbody2D.velocity.y >= 0;
-        var movement = Input.GetAxis(GetAxisName("Movement"));
-        var jump_pressed = Input.GetAxis(GetAxisName("Jump")) > 0.5f;
+        var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
+        var jump_held = Input.GetAxis(GetInputName("Jump")) > 0.5f;
+	    var climb_held = Input.GetButton(GetInputName("Climb"));
 
+	    if (climb_held)
+	    {
+			_animator.SetBaseAnimation(_animator.ClimbSprites, 0);
+		    _grounded = false;
+		    _climbing = true;
+		    rigidbody2D.velocity = Vector2.zero;
+		    rigidbody2D.isKinematic = true;
+			rigidbody2D.velocity = movement;
+			_climbed_since_last_frame += movement;
 
-        if (jump_pressed && _grounded)
+		    if (_climbed_since_last_frame.magnitude >= ClimbDistance)
+		    {
+				_animator.Advance();
+			    _climbed_since_last_frame = Vector2.zero;
+		    }
+
+		    _animator.ManualAdvance = true;
+	    }
+        else if (jump_held && _grounded)
         {
             rigidbody2D.AddForce(new Vector3(0, JumpForce, 0), ForceMode2D.Impulse);
             _grounded = false;
         }
 
-        var limited_speed = LimitSpeed(movement, _grounded, rigidbody2D.velocity);
+	    if (!climb_held && _climbing)
+	    {
+		    _climbed_since_last_frame = Vector2.zero;
+			_animator.ManualAdvance = false;
+		    _climbing = false;
+		    rigidbody2D.isKinematic = false;
+		    rigidbody2D.velocity = Vector2.zero;
+	    }
+
+        var limited_speed = LimitSpeed(movement.x, _grounded, rigidbody2D.velocity);
 
         if (limited_speed == rigidbody2D.velocity)
-            rigidbody2D.AddForce(CalculateForceToAdd(movement, _grounded));
+			rigidbody2D.AddForce(CalculateForceToAdd(movement.x, _grounded));
         else
             rigidbody2D.velocity = limited_speed;
 
 		rigidbody2D.velocity = new Vector2(Mathf.Clamp(rigidbody2D.velocity.x, -PlayerMaxSpeed, PlayerMaxSpeed), rigidbody2D.velocity.y);
 
-		if (Mathf.Abs(rigidbody2D.velocity.x) > 0.2f)
-			_animator.SetBaseAnimation(_animator.RunSprites, 400);
-		else
-			_animator.SetBaseAnimation(_animator.IdleSprites, 400);
+	    if (!_climbing)
+	    {
+		    if (Mathf.Abs(rigidbody2D.velocity.x) > 0.2f)
+			    _animator.SetBaseAnimation(_animator.RunSprites, 400);
+		    else
+			    _animator.SetBaseAnimation(_animator.IdleSprites, 400);
+	    }
 
-		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+	    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
     }
 
-    public string GetAxisName(string axis)
+    public string GetInputName(string axis)
     {
         return _player_name + "_" + axis;
     }
