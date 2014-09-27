@@ -19,8 +19,33 @@ public class PlayerControl : MonoBehaviour
 	private Transform _head_check_box;
 	private Transform _arm;
 
+	private Color TintColor()
+	{
+		if (PlayerNum == "1")
+			return Color.white;
+
+		if (PlayerNum == "2")
+			return Color.green;
+
+		if (PlayerNum == "3")
+			return Color.red;
+
+		if (PlayerNum == "4")
+			return Color.black;
+
+		throw new NotImplementedException();
+	}
+
 	public void Start()
 	{
+		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+		var tint_color = TintColor();
+
+		foreach (var s in all_sprite_renderers)
+		{
+			s.color = tint_color;
+		}
+
 		_arm = transform.FindChild("Arm");
 	    _animator = GetComponent<Animator>();
 		_grounded_check_box = transform.FindChild("GroundCheck");
