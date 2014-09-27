@@ -18,6 +18,10 @@ public class ArmControl : MonoBehaviour
 	public bool DeathHandled;
 	private PlayerGUIScript _gui;
 	private bool _set_shoot_button_state;
+	private AudioSource _audio_source;
+	public AudioClip[] FireSounds;
+	public AudioClip EmptyClipSound;
+	public AudioClip ReloadSound;
 
 	public void Start()
 	{
@@ -28,6 +32,7 @@ public class ArmControl : MonoBehaviour
 		_current_barrallel = 0;
 		_loaded = new bool[4];
 		DeathHandled = false;
+		_audio_source = GetComponent<AudioSource>();
 		
 		for (var i = 0; i < 4; ++i)
 			_loaded[i] = true;
@@ -57,6 +62,9 @@ public class ArmControl : MonoBehaviour
 			bullet.rigidbody2D.AddForce(direction * ShootSpeed);
 			_can_shoot_at = Time.time + ShootCooldown;
 			_loaded[_current_barrallel] = false;
+			_audio_source.clip = FireSounds[Random.Range(0, FireSounds.Length - 1)];
+			_audio_source.pitch = Random.Range(0.95f, 1.05f);
+			_audio_source.Play();
 		}
 
 		if (ClipEmpty())
@@ -75,8 +83,11 @@ public class ArmControl : MonoBehaviour
 
 		_gui.LoadBullet(index + 1);
 
+		_audio_source.clip = ReloadSound;
+		_audio_source.pitch = Random.Range(0.95f, 1.05f);
+		_audio_source.Play();
+
 		_loaded[index] = true;
-		// PLAY SOUND
 	}
 
 	private Vector2 FindSpawnPoint()
@@ -147,14 +158,22 @@ public class ArmControl : MonoBehaviour
 		
 		if (shoot_pressed && !_fire_held_last_frame && Time.time > _can_shoot_at)
 		{
-			if (_reloading && !ClipEmpty())
+			var clip_empty = ClipEmpty();
+			if (_reloading && !clip_empty)
 			{
 				_current_barrallel = Random.Range(0, 3);
 				_reloading = false;
 				_gui.Hide();
 			}
 
-			Fire();
+			if (clip_empty)
+			{
+				_audio_source.clip = EmptyClipSound;
+				_audio_source.pitch = Random.Range(0.95f, 1.05f);
+				_audio_source.Play();
+			}
+			else
+				Fire();
 		}
 
 		_fire_held_last_frame = shoot_pressed;

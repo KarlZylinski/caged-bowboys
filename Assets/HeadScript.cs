@@ -7,9 +7,13 @@ public class HeadScript : MonoBehaviour {
 	public GameObject BloodPrototype;
 	private PlayerControl _player_control;
 	private Animator _animator;
+	public AudioClip[] SplatSounds;
+	public AudioClip[] GroanSounds;
+	private AudioSource _audio_source;
 
 	void Start ()
 	{
+		_audio_source = GetComponent<AudioSource>();
 		_player_control = transform.parent.GetComponent<PlayerControl>();
 		_animator = transform.parent.GetComponent<Animator>();
 		_trigger = GetComponent<Collider2D>();
@@ -28,6 +32,19 @@ public class HeadScript : MonoBehaviour {
 				instance.transform.position = new Vector3(other.transform.position.x + bullet_direction.x * 0.1f, other.transform.position.y + bullet_direction.y * 0.1f, 0);
 
 				instance.GetComponent<Rigidbody2D>().AddForce((new Vector2(bullet_direction.x, bullet_direction.y * Random.Range(0.25f, 2f)).normalized * 10.0f));
+			}
+			
+			if (Random.Range(1, 4) == 3)
+			{
+				_audio_source.clip = GroanSounds[Random.Range(0, GroanSounds.Length - 1)];
+				_audio_source.pitch = Random.Range(0.95f, 1.05f);
+				_audio_source.Play();	
+			}
+			else
+			{
+				_audio_source.clip = SplatSounds[Random.Range(0, SplatSounds.Length - 1)];
+				_audio_source.pitch = Random.Range(0.95f, 1.05f);
+				_audio_source.Play();
 			}
 
 			_player_control.Dead = true;

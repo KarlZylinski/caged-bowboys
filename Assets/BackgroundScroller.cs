@@ -20,7 +20,7 @@ public class BackgroundScroller : MonoBehaviour
 			_has_passed_origo = true;
 		}
 
-		if (transform.position.y < -20.0)
+		if (transform.position.y < -13.0)
 			Destroy(gameObject);
 	}
 
