@@ -14,19 +14,33 @@ public class PlayerControl : MonoBehaviour
 	private Animator _animator;
 	private bool _climbing;
 	private Vector2 _climbed_since_last_frame;
+	private Transform _left_check_box;
+	private Transform _right_check_box;
+	private Transform _head_check_box;
 
-    public void Start()
+	public void Start()
     {
 	    _animator = GetComponent<Animator>();
-        _grounded_check_box = transform.FindChild("GroundCheck");
+		_grounded_check_box = transform.FindChild("GroundCheck");
+		_left_check_box = transform.FindChild("LeftCheck");
+		_right_check_box = transform.FindChild("RightCheck");
+		_head_check_box = transform.FindChild("HeadCheck");
         _grounded = false;
 	    _climbing = false;
         _player_name = "Player" + PlayerNum;
     }
 
+	private bool HitFrom(Transform check_obj)
+	{
+		var v = check_obj.position - transform.position;
+		var dir = v.normalized;
+		var distance = v.magnitude;
+		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, 1 << LayerMask.NameToLayer("Ground")).collider != null;
+	}
+
     public void Update()
     {
-        _grounded = Physics2D.Linecast(transform.position, _grounded_check_box.position, 1 << LayerMask.NameToLayer("Ground")).collider != null && rigidbody2D.velocity.y >= 0;
+		_grounded = HitFrom(_grounded_check_box) && rigidbody2D.velocity.y >= 0;
         var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
         var jump_held = Input.GetAxis(GetInputName("Jump")) > 0.5f;
 	    var climb_held = Input.GetButton(GetInputName("Climb"));
@@ -38,8 +52,23 @@ public class PlayerControl : MonoBehaviour
 		    _climbing = true;
 		    rigidbody2D.velocity = Vector2.zero;
 		    rigidbody2D.isKinematic = true;
-			rigidbody2D.velocity = movement;
-			_climbed_since_last_frame += movement;
+
+		    var climb_movement = movement;
+
+		    if (HitFrom(_left_check_box))
+				climb_movement.x = Mathf.Max(climb_movement.x, 0);
+
+			if (HitFrom(_right_check_box))
+				climb_movement.x = Mathf.Min(climb_movement.x, 0);
+
+			if (HitFrom(_grounded_check_box))
+				climb_movement.y = Mathf.Max(climb_movement.y, 0);
+				
+			if (HitFrom(_head_check_box))
+				climb_movement.y = Mathf.Min(climb_movement.y, 0);
+
+			rigidbody2D.velocity = climb_movement;
+			_climbed_since_last_frame += climb_movement;
 
 		    if (_climbed_since_last_frame.magnitude >= ClimbDistance)
 		    {
