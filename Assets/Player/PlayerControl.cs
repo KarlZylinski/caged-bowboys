@@ -35,12 +35,11 @@ public class PlayerControl : MonoBehaviour
 		var v = check_obj.position - transform.position;
 		var dir = v.normalized;
 		var distance = v.magnitude;
-		var mask =  LayerMask.NameToLayer("Ground");
+		var mask =  1 << LayerMask.NameToLayer("Ground");
 
 		if (additional_mask != null)
-			mask = mask | LayerMask.NameToLayer(additional_mask);
+			mask = mask | 1 << LayerMask.NameToLayer(additional_mask);
 
-		mask = 1 << mask;
 
 		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, mask).collider != null;
 	}
