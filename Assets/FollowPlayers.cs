@@ -6,10 +6,10 @@ public class FollowPlayers : MonoBehaviour
 	public float CameraFollowSpeed = 100.0f;
 	private Vector2 _wanted_pos;
 
-	private Vector2 CalculateWantedPos()
+	private static Vector2 CalculateWantedPos()
 	{
 		var tracked = FindObjectsOfType<TrackedByCamera>();
-		Vector3 first_pos = tracked[0].transform.position;
+		var first_pos = tracked[0].transform.position;
 		var num_tracked = 1;
 		var tracked_added = new Vector2(0, 0);
 

@@ -20,6 +20,7 @@ public class PlayerControl : MonoBehaviour
 	private Transform _arm;
 	public bool Dead;
 	public float TimeOfDeath;
+	private Transform _ground_check_box;
 
 	private Color TintColor()
 	{
@@ -57,7 +58,8 @@ public class PlayerControl : MonoBehaviour
 		}
 		_arm = transform.FindChild("Arm");
 	    _animator = GetComponent<Animator>();
-		_grounded_check_box = transform.FindChild("GroundCheck");
+		_ground_check_box = transform.FindChild("GroundCheck");
+		_grounded_check_box = transform.FindChild("GroundedCheck");
 		_left_check_box = transform.FindChild("LeftCheck");
 		_right_check_box = transform.FindChild("RightCheck");
 		_head_check_box = transform.FindChild("HeadCheck");
@@ -110,7 +112,7 @@ public class PlayerControl : MonoBehaviour
 		rigidbody2D.velocity = Vector2.zero;
 		rigidbody2D.isKinematic = true;
 
-		var climb_movement = _arm.GetComponent<ArmControl>().Reloading() ? movement : movement * 0.5f;
+		var climb_movement = _arm.GetComponent<ArmControl>().Reloading() ? movement : movement * 0.7f;
 
 		if (HitFrom(_left_check_box, "NoClimb"))
 			climb_movement.x = Mathf.Max(climb_movement.x, 0);
@@ -118,7 +120,7 @@ public class PlayerControl : MonoBehaviour
 		if (HitFrom(_right_check_box, "NoClimb"))
 			climb_movement.x = Mathf.Min(climb_movement.x, 0);
 
-		if (HitFrom(_grounded_check_box, "NoClimb"))
+		if (HitFrom(_ground_check_box, "NoClimb"))
 			climb_movement.y = Mathf.Max(climb_movement.y, 0);
 
 		if (HitFrom(_head_check_box, "NoClimb"))
@@ -143,7 +145,7 @@ public class PlayerControl : MonoBehaviour
 			return;
 	    }
 
-		_grounded = HitFrom(_grounded_check_box) && rigidbody2D.velocity.y >= 0;
+		_grounded = Physics2D.Linecast(transform.position, _grounded_check_box.transform.position, 1 << LayerMask.NameToLayer("Ground")).collider != null && rigidbody2D.velocity.y <= 0;
         var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
         var jump_held = Input.GetAxis(GetInputName("Jump")) > 0.5f;
 	    var climb_held = Input.GetButton(GetInputName("Climb"));

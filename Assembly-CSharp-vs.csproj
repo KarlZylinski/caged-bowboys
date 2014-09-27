@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Animator.cs" />
+     <Compile Include="Assets\BackgroundScroller.cs" />
      <Compile Include="Assets\BloodLayerSetter.cs" />
      <Compile Include="Assets\BulletScript.cs" />
      <Compile Include="Assets\FollowPlayers.cs" />
