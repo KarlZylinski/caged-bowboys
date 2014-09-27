@@ -25,21 +25,14 @@ public class FollowPlayers : MonoBehaviour {
 			++num_tracked;
 		}
 
-		var camera_half = 2.0f;
-		print("half:" + camera_half);
-		
+		const float cameraHalf = 2.0f;
 		Vector2 first_pos_v2 = first_pos;
 		var wanted_pos = first_pos_v2 + (num_tracked == 0 ? new Vector2(0, 0) : (tracked_added * (1.0f/num_tracked)));
 
-		//print("want:" + wanted_pos.x);
-		//print("left:" + -455.0f*camera.orthographicSize);
-		print(wanted_pos);
-
-
-		if (wanted_pos.x - camera_half <= -455.0f / 100.0f)
-			wanted_pos = new Vector2(-455.0f/100.0f + camera_half, wanted_pos.y);
-		else if (wanted_pos.x + camera_half >= 455.0f / 100.0f)
-			wanted_pos = new Vector2(455.0f/100.0f - camera_half, wanted_pos.y);
+		if (wanted_pos.x - cameraHalf <= -455.0f / 100.0f)
+			wanted_pos = new Vector2(-455.0f/100.0f + cameraHalf, wanted_pos.y);
+		else if (wanted_pos.x + cameraHalf >= 455.0f / 100.0f)
+			wanted_pos = new Vector2(455.0f/100.0f - cameraHalf, wanted_pos.y);
 
 		camera.transform.position = new Vector3(wanted_pos.x, wanted_pos.y, -10.0f);
 	}
