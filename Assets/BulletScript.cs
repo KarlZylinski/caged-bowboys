@@ -12,7 +12,6 @@ public class BulletScript : MonoBehaviour {
 	{
 		if (!(other.gameObject.layer >= 9 && other.gameObject.layer <= 16))
 		{
-			print("unset");
 			_trigger.isTrigger = false;
 			_trigger.gameObject.layer = 17;
 		}

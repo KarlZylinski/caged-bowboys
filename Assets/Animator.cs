@@ -8,6 +8,7 @@ namespace Assets.Player
 	{
 		public Sprite[] RunSprites;
 		public Sprite[] IdleSprites;
+		public Sprite[] ClimbSprites;
 		public Vector2[] ArmOffsets;
 		public bool KillWhenDone = false;
 

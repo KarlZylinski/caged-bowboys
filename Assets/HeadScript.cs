@@ -3,7 +3,8 @@ using System.Collections;
 
 public class HeadScript : MonoBehaviour {
 	private Collider2D _trigger;
-	
+	public GameObject BloodPrototype;
+
 	void Start ()
 	{
 		_trigger = GetComponent<Collider2D>();
@@ -14,7 +15,17 @@ public class HeadScript : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Bullet")
 		{
-			Destroy(transform.parent.gameObject);
+			var bullet_direction = other.gameObject.GetComponent<Rigidbody2D>().velocity.normalized;
+			
+			for (var i = 0; i < 10; ++i)
+			{
+				var instance = (GameObject)Instantiate(BloodPrototype);
+				instance.transform.position = new Vector3(other.transform.position.x + bullet_direction.x * 0.1f, other.transform.position.y + bullet_direction.y * 0.1f, 0);
+
+				instance.GetComponent<Rigidbody2D>().AddForce((new Vector2(bullet_direction.x, bullet_direction.y * Random.Range(0.25f, 2f)).normalized * 10.0f));
+			}
+
+			Destroy(other.gameObject);
 		}
 	}
 }
