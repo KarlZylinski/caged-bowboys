@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour
         var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
         var jump_held = Input.GetAxis(GetInputName("Jump")) > 0.5f;
 	    var climb_held = Input.GetButton(GetInputName("Climb"));
-
+		
 	    if (climb_held)
 	    {
 			_animator.SetBaseAnimation(_animator.ClimbSprites, 0);
@@ -115,8 +115,11 @@ public class PlayerControl : MonoBehaviour
 		    else
 			    _animator.SetBaseAnimation(_animator.IdleSprites, 400);
 	    }
-
-	    Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+		
+	    if (rigidbody2D.velocity.x > 0.1f)
+		    transform.localScale = new Vector3(1, 1, 1);
+		else if (rigidbody2D.velocity.x < -0.1f)
+			transform.localScale = new Vector3(-1, 1, 1);
     }
 
     public string GetInputName(string axis)

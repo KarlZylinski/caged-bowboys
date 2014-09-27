@@ -13,6 +13,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400008}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -350,6 +351,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BloodPrototype: {fileID: 100000, guid: c2f55a33cebe3ce48906c0da3189971a, type: 2}
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e6683a74dc6614089a9ff6b3b8fd21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

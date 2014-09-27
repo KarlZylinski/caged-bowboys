@@ -21,7 +21,7 @@ public class ArmControl : MonoBehaviour
 		var look = new Vector2(Input.GetAxis(_player_control.GetInputName("LookX")), Input.GetAxis(_player_control.GetInputName("LookY")));
 
 		if (look.magnitude > 0.4f)
-			transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.y, look.x) * Mathf.Rad2Deg);
+			transform.localRotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.y, look.x * transform.parent.localScale.x) * Mathf.Rad2Deg);
 			
 		var shoot_pressed = Input.GetAxis(_player_control.GetInputName("Shoot")) > 0.5f;
 
