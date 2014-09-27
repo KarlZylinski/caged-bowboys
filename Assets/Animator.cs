@@ -53,7 +53,7 @@ namespace Assets.Player
 			_frame_index = 0;
 			ManualAdvance = false;
 			_advance = false;
-			SetBaseAnimation(IdleSprites, 400);
+			SetBaseAnimation(IdleSprites, 200);
 			renderer.enabled = true;
 			_hide_when_done = false;
 			StopWhenDone = false;
@@ -108,7 +108,7 @@ namespace Assets.Player
 						renderer.enabled = false;
 				}
 
-				var arm = _arm.GetComponent<ArmControl>();
+				var arm = _arm != null ? _arm.GetComponent<ArmControl>() : null;
 				if (arm != null && !arm.DeathHandled)
 				{
 					var offset = ArmOffset(animation, _frame_index);
@@ -144,7 +144,7 @@ namespace Assets.Player
 				return;
 
 
-			_base_anim_speed = 1 / 5.0f;
+			_base_anim_speed = speed/1000.0f;
 			
 			if (_current_base_animation == sprites)
 				return;
@@ -153,7 +153,7 @@ namespace Assets.Player
 			_frame_index = 0;
 			_current_time = 0;
 
-			var arm = _arm.GetComponent<ArmControl>();
+			var arm = _arm != null ? _arm.GetComponent<ArmControl>() : null;
 			if (arm != null && !arm.DeathHandled)
 			{
 				var offset = ArmOffset(sprites, 0);
@@ -188,11 +188,11 @@ namespace Assets.Player
 				SetBaseAnimation(IdleDeathSprites, 400);
 
 			if (_current_base_animation.SequenceEqual(RunSprites))
-				SetBaseAnimation(RunDeathSprites, 400);
+				SetBaseAnimation(RunDeathSprites, 100);
 
 			if (_current_base_animation.SequenceEqual(ClimbSprites))
 			{
-				SetBaseAnimation(ClimbDeathSprites, 400);
+				SetBaseAnimation(ClimbDeathSprites, 200);
 				_hide_when_done = true;
 			}
 				

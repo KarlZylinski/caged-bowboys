@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 1
-  JumpForce: 3
+  JumpForce: 4
   PlayerMaxSpeed: 1
   ClimbDistance: 10
   Dead: 0

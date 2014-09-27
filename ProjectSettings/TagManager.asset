@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - NoClimb
   - SpawnPoint
+  - Music
+  - Score
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

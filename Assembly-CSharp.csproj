@@ -46,17 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AceGunnnerTinter.cs" />
      <Compile Include="Assets\Animator.cs" />
      <Compile Include="Assets\BackgroundScroller.cs" />
      <Compile Include="Assets\BloodLayerSetter.cs" />
      <Compile Include="Assets\BulletScript.cs" />
+     <Compile Include="Assets\ControlScreen.cs" />
+     <Compile Include="Assets\EndGame.cs" />
      <Compile Include="Assets\FollowPlayers.cs" />
      <Compile Include="Assets\GUIScript.cs" />
      <Compile Include="Assets\HeadScript.cs" />
      <Compile Include="Assets\HitThing.cs" />
+     <Compile Include="Assets\Music.cs" />
      <Compile Include="Assets\Player\ArmControl.cs" />
      <Compile Include="Assets\Player\PlayerControl.cs" />
      <Compile Include="Assets\PlayerGUIScript.cs" />
+     <Compile Include="Assets\ScoreKeeper.cs" />
+     <Compile Include="Assets\TitleScreen.cs" />
      <Compile Include="Assets\TrackedByCamera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

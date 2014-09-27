@@ -34,7 +34,7 @@ public class PlayerControl : MonoBehaviour
 			return Color.red;
 
 		if (PlayerNum == "4")
-			return Color.black;
+			return Color.yellow;
 
 		throw new NotImplementedException();
 	}
@@ -181,7 +181,7 @@ public class PlayerControl : MonoBehaviour
 	    if (!_climbing)
 	    {
 		    if (Mathf.Abs(rigidbody2D.velocity.x) > 0.2f)
-			    _animator.SetBaseAnimation(_animator.RunSprites, 400);
+			    _animator.SetBaseAnimation(_animator.RunSprites, 100.0f);
 		    else
 			    _animator.SetBaseAnimation(_animator.IdleSprites, 400);
 	    }
