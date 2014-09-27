@@ -3,6 +3,11 @@ using System.Collections;
 
 public class TitleScreen : MonoBehaviour
 {
+	public void Start()
+	{
+		Screen.showCursor = false;
+	}
+
 	void Update()
 	{
 		if (Input.GetKeyDown("joystick button 0")
