@@ -13,6 +13,8 @@ namespace Assets.Player
 		public Sprite[] ClimbSprites;
 		public Vector2[] ClimbSpritesArmOffsets;
 		public Sprite[] IdleDeathSprites;
+		public Sprite[] RunDeathSprites;
+		public Sprite[] ClimbDeathSprites;
 		public bool StopWhenDone = false;
 
 		public float AnimationSpeed = 1 / 10.0f;
@@ -27,6 +29,7 @@ namespace Assets.Player
 		public bool ManualAdvance;
 		private bool _advance;
 		private bool _stopped;
+		private bool _hide_when_done;
 
 		public void Start()
 		{
@@ -43,6 +46,20 @@ namespace Assets.Player
 			_arm = transform.FindChild("Arm");
 		}
 
+		public void Reset()
+		{
+			_stopped = false;
+			_current_time = 0;
+			_frame_index = 0;
+			ManualAdvance = false;
+			_advance = false;
+			SetBaseAnimation(IdleSprites, 400);
+			renderer.enabled = true;
+			_hide_when_done = false;
+			StopWhenDone = false;
+		}
+
+
 		public void Update()
 		{
 			PlayAnimation(_current_temp_animation != null, _current_temp_animation ?? _current_base_animation, _current_temp_animation != null ? _temp_anim_speed : _base_anim_speed);
@@ -51,6 +68,11 @@ namespace Assets.Player
 		public void Advance()
 		{
 			_advance = true;
+		}
+
+		public void SetArm(Transform arm)
+		{
+			_arm = arm;
 		}
 
 		private void PlayAnimation(bool temp_anim, Sprite[] animation, float speed)
@@ -68,7 +90,7 @@ namespace Assets.Player
 
 				if (_frame_index >= animation.Count())
 				{
-					if (!StopWhenDone)
+					if (!StopWhenDone || _hide_when_done)
 					{
 						_frame_index = 0;
 
@@ -78,10 +100,12 @@ namespace Assets.Player
 							animation = _current_base_animation;
 						}
 					}
-					else
-					{
+					
+					if(StopWhenDone)
 						_stopped = true;
-					}
+
+					if (_hide_when_done)
+						renderer.enabled = false;
 				}
 
 				var arm = _arm.GetComponent<ArmControl>();
@@ -163,6 +187,17 @@ namespace Assets.Player
 			if (_current_base_animation.SequenceEqual(IdleSprites))
 				SetBaseAnimation(IdleDeathSprites, 400);
 
+			if (_current_base_animation.SequenceEqual(RunSprites))
+				SetBaseAnimation(RunDeathSprites, 400);
+
+			if (_current_base_animation.SequenceEqual(ClimbSprites))
+			{
+				SetBaseAnimation(ClimbDeathSprites, 400);
+				_hide_when_done = true;
+			}
+				
+
+			ManualAdvance = false;
 			StopWhenDone = true;
 		}
 	}

@@ -1,9 +1,11 @@
 ﻿using System.Linq;
+using System.Text;
 using UnityEngine;
 
 public class ArmControl : MonoBehaviour
 {
 	public GameObject BulletPrototype;
+	public GameObject ArmPrototype;
 	public float ShootSpeed = 200.0f;
 	private PlayerControl _player_control;
 	private Transform _bullet_spawn_point;
@@ -76,21 +78,52 @@ public class ArmControl : MonoBehaviour
 		// PLAY SOUND
 	}
 
+	private Vector2 FindSpawnPoint()
+	{
+		var spawn_points = GameObject.FindGameObjectsWithTag("SpawnPoint");
+		return spawn_points[Random.Range(0, spawn_points.Count() - 1)].transform.position;
+	}
+
 	public void Update()
 	{
+		var shoot_pressed = Input.GetAxis(_player_control.GetInputName("Shoot")) > 0.5f;
+
 		if (_player_control.Dead && !DeathHandled)
 		{
+			_gui.Hide();
 			transform.parent = null;
 			gameObject.AddComponent<Rigidbody2D>();
 			gameObject.AddComponent<BoxCollider2D>();
 			DeathHandled = true;
 			rigidbody2D.AddForce(new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f))* 200.0f);
-			transform.Rotate(new Vector3(0, 0, Random.Range(-25f, 25f)));
-			Destroy(this);
+			transform.Rotate(new Vector3(0, 0, Random.Range(-25f, 25f)));		
 		}
 
 		if (_player_control.Dead)
+		{
+			if (shoot_pressed)
+			{
+				_player_control.Dead = false;
+				var new_arm = (GameObject)Instantiate(ArmPrototype);
+				new_arm.transform.parent = _player_control.transform;
+				_player_control.SetArm(new_arm.transform);
+				_player_control.transform.position = FindSpawnPoint();
+				_player_control.Reset();
+
+				var new_arm_rigidbody = new_arm.rigidbody2D;
+				var new_arm_collider = new_arm.collider2D;
+
+				if (new_arm_rigidbody != null)
+					Destroy(new_arm_rigidbody);
+
+				if (new_arm_collider != null)
+					Destroy(new_arm_collider);
+					
+				Destroy(gameObject);
+			}
+
 			return;
+		}
 
 		var look = new Vector2(Input.GetAxis(_player_control.GetInputName("LookX")), Input.GetAxis(_player_control.GetInputName("LookY")));
 
@@ -108,8 +141,6 @@ public class ArmControl : MonoBehaviour
 			else if (Input.GetButtonDown(_player_control.GetInputName("Reload4")))
 				ReloadBarrallel(3);
 		}
-			
-		var shoot_pressed = Input.GetAxis(_player_control.GetInputName("Shoot")) > 0.5f;
 		
 		if (shoot_pressed && !_fire_held_last_frame && Time.time > _can_shoot_at)
 		{

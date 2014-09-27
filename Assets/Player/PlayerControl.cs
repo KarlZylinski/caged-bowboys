@@ -37,6 +37,12 @@ public class PlayerControl : MonoBehaviour
 		throw new NotImplementedException();
 	}
 
+	public void SetArm(Transform arm)
+	{
+		_arm = arm;
+		_animator.SetArm(arm);
+	}
+
 	public void Start()
 	{
 		Dead = false;
@@ -47,7 +53,6 @@ public class PlayerControl : MonoBehaviour
 		{
 			s.color = tint_color;
 		}
-
 		_arm = transform.FindChild("Arm");
 	    _animator = GetComponent<Animator>();
 		_grounded_check_box = transform.FindChild("GroundCheck");
@@ -58,6 +63,19 @@ public class PlayerControl : MonoBehaviour
 	    _climbing = false;
         _player_name = "Player" + PlayerNum;
     }
+
+	public void Reset()
+	{
+		Dead = false;
+		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
+		var tint_color = TintColor();
+
+		foreach (var s in all_sprite_renderers)
+		{
+			s.color = tint_color;
+		}
+		_animator.Reset();
+	}
 
 	private bool HitFrom(Transform check_obj, string additional_mask = null)
 	{
@@ -72,10 +90,57 @@ public class PlayerControl : MonoBehaviour
 		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, mask).collider != null;
 	}
 
+	private void ClimbHeld(Vector2 movement)
+	{
+		var no_climb_areas = GameObject.FindGameObjectsWithTag("NoClimb");
+
+		foreach (var no_climb_area in no_climb_areas)
+		{
+			if (collider2D.bounds.Intersects(no_climb_area.collider2D.bounds))
+			{
+				print("intersect");
+				return;
+			}
+		}
+
+		_animator.SetBaseAnimation(_animator.ClimbSprites, 0);
+		_grounded = false;
+		_climbing = true;
+		rigidbody2D.velocity = Vector2.zero;
+		rigidbody2D.isKinematic = true;
+
+		var climb_movement = movement;
+
+		if (HitFrom(_left_check_box, "NoClimb"))
+			climb_movement.x = Mathf.Max(climb_movement.x, 0);
+
+		if (HitFrom(_right_check_box, "NoClimb"))
+			climb_movement.x = Mathf.Min(climb_movement.x, 0);
+
+		if (HitFrom(_grounded_check_box, "NoClimb"))
+			climb_movement.y = Mathf.Max(climb_movement.y, 0);
+
+		if (HitFrom(_head_check_box, "NoClimb"))
+			climb_movement.y = Mathf.Min(climb_movement.y, 0);
+
+		rigidbody2D.velocity = climb_movement;
+		_climbed_since_last_frame += climb_movement;
+
+		if (_climbed_since_last_frame.magnitude >= ClimbDistance)
+		{
+			_animator.Advance();
+			_climbed_since_last_frame = Vector2.zero;
+		}
+
+		_animator.ManualAdvance = true;
+	}
+
     public void Update()
     {
 	    if (Dead)
-		    return;
+	    {			
+			return;
+	    }
 
 		_grounded = HitFrom(_grounded_check_box) && rigidbody2D.velocity.y >= 0;
         var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
@@ -84,36 +149,7 @@ public class PlayerControl : MonoBehaviour
 		
 	    if (climb_held)
 	    {
-			_animator.SetBaseAnimation(_animator.ClimbSprites, 0);
-		    _grounded = false;
-		    _climbing = true;
-		    rigidbody2D.velocity = Vector2.zero;
-		    rigidbody2D.isKinematic = true;
-
-		    var climb_movement = movement;
-
-			if (HitFrom(_left_check_box, "NoClimb"))
-				climb_movement.x = Mathf.Max(climb_movement.x, 0);
-
-			if (HitFrom(_right_check_box, "NoClimb"))
-				climb_movement.x = Mathf.Min(climb_movement.x, 0);
-
-			if (HitFrom(_grounded_check_box, "NoClimb"))
-				climb_movement.y = Mathf.Max(climb_movement.y, 0);
-
-			if (HitFrom(_head_check_box, "NoClimb"))
-				climb_movement.y = Mathf.Min(climb_movement.y, 0);
-
-			rigidbody2D.velocity = climb_movement;
-			_climbed_since_last_frame += climb_movement;
-
-		    if (_climbed_since_last_frame.magnitude >= ClimbDistance)
-		    {
-				_animator.Advance();
-			    _climbed_since_last_frame = Vector2.zero;
-		    }
-
-		    _animator.ManualAdvance = true;
+		    ClimbHeld(movement);
 	    }
         else if (jump_held && _grounded)
         {

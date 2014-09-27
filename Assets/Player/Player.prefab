@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .18659091, z: 0}
+  m_LocalPosition: {x: 0, y: .117851019, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0589737892, y: 0, z: 0}
+  m_LocalPosition: {x: .0342273712, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -216,7 +216,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0546300411, y: 0, z: 0}
+  m_LocalPosition: {x: -.0271341801, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.190998673, z: 0}
+  m_LocalPosition: {x: 0, y: -.147005081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrototype: {fileID: 100000, guid: b9c6bfae87c5ea4429b572d5aeaf7fed, type: 2}
+  ArmPrototype: {fileID: 100000, guid: 87eafa5379cb402499fcf3ad6d09cab8, type: 2}
   ShootSpeed: 3000
   ShootCooldown: .200000003
   DeathHandled: 0
@@ -338,6 +339,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300004, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
+  RunDeathSprites:
+  - {fileID: 21300000, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  - {fileID: 21300002, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  - {fileID: 21300004, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  - {fileID: 21300006, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  - {fileID: 21300008, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  - {fileID: 21300010, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  ClimbDeathSprites:
+  - {fileID: 21300000, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300002, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300004, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300006, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300008, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300010, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  - {fileID: 21300012, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   StopWhenDone: 0
   AnimationSpeed: .100000001
   ManualAdvance: 0
