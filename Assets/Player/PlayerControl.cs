@@ -17,9 +17,11 @@ public class PlayerControl : MonoBehaviour
 	private Transform _left_check_box;
 	private Transform _right_check_box;
 	private Transform _head_check_box;
+	private Transform _arm;
 
 	public void Start()
-    {
+	{
+		_arm = transform.FindChild("Arm");
 	    _animator = GetComponent<Animator>();
 		_grounded_check_box = transform.FindChild("GroundCheck");
 		_left_check_box = transform.FindChild("LeftCheck");
@@ -39,7 +41,6 @@ public class PlayerControl : MonoBehaviour
 
 		if (additional_mask != null)
 			mask = mask | 1 << LayerMask.NameToLayer(additional_mask);
-
 
 		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, mask).collider != null;
 	}
@@ -115,11 +116,22 @@ public class PlayerControl : MonoBehaviour
 		    else
 			    _animator.SetBaseAnimation(_animator.IdleSprites, 400);
 	    }
-		
-	    if (rigidbody2D.velocity.x > 0.1f)
-		    transform.localScale = new Vector3(1, 1, 1);
-		else if (rigidbody2D.velocity.x < -0.1f)
-			transform.localScale = new Vector3(-1, 1, 1);
+
+	    if (_climbing)
+	    {
+			transform.localScale = new Vector3(1, 1, 1);
+		    var arm_pos = _arm.transform.position;
+			_arm.transform.position = new Vector3(arm_pos.x, arm_pos.y, 1.0f);
+	    }
+	    else
+	    {
+			var arm_pos = _arm.transform.position;
+			_arm.transform.position = new Vector3(arm_pos.x, arm_pos.y, -1.0f);
+			if (rigidbody2D.velocity.x > 0.1f)
+				transform.localScale = new Vector3(1, 1, 1);
+			else if (rigidbody2D.velocity.x < -0.1f)
+				transform.localScale = new Vector3(-1, 1, 1);
+	    }
     }
 
     public string GetInputName(string axis)
