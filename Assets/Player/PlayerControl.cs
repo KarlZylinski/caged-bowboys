@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
         var movement = Input.GetAxis(GetAxisName("Movement"));
         var jump_pressed = Input.GetAxis(GetAxisName("Jump")) > 0.5f;
 
+
         if (jump_pressed && _grounded)
         {
             rigidbody2D.AddForce(new Vector3(0, JumpForce, 0), ForceMode2D.Impulse);
