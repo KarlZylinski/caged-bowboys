@@ -329,13 +329,9 @@ MonoBehaviour:
   ClimbSprites:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
-  - {fileID: 21300004, guid: b19819bbe61679241bd454371baa7746, type: 3}
-  - {fileID: 21300006, guid: b19819bbe61679241bd454371baa7746, type: 3}
   ClimbSpritesArmOffsets:
-  - {x: .0081782341, y: -.0451178588}
-  - {x: -.0354490317, y: -.127740607}
   - {x: -.0715000629, y: -.0478342809}
-  - {x: -.0354490317, y: -.127740607}
+  - {x: .0081782341, y: -.0451178588}
   KillWhenDone: 0
   AnimationSpeed: .100000001
   ManualAdvance: 0
