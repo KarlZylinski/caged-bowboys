@@ -7,9 +7,11 @@ namespace Assets.Player
 	public class Animator : MonoBehaviour
 	{
 		public Sprite[] RunSprites;
+		public Vector2[] RunSpritesArmOffsets;
 		public Sprite[] IdleSprites;
+		public Vector2[] IdleSpritesArmOffsets;
 		public Sprite[] ClimbSprites;
-		public Vector2[] ArmOffsets;
+		public Vector2[] ClimbSpritesArmOffsets;
 		public bool KillWhenDone = false;
 
 		public float AnimationSpeed = 1 / 10.0f;
@@ -74,21 +76,23 @@ namespace Assets.Player
 						animation = _current_base_animation;
 					}
 				}
-
+				_arm.transform.localPosition = ArmOffset(animation, _frame_index);
 				_sprite_renderer.sprite = animation[_frame_index];
 			}
 		}
 
-		private int AnimIndex(Sprite[] sprites)
+		
+
+		private Vector2 ArmOffset(Sprite[] sprites, int index)
 		{
 			if (sprites == RunSprites)
-				return 0;
+				return RunSpritesArmOffsets[index];
 
 			if (sprites == IdleSprites)
-				return 1;
+				return IdleSpritesArmOffsets[index];
 
 			if (sprites == ClimbSprites)
-				return 2;
+				return ClimbSpritesArmOffsets[index];
 
 			throw new NotImplementedException();
 		}
@@ -98,9 +102,6 @@ namespace Assets.Player
 			if (!sprites.Any())
 				return;
 
-			var anim_index = AnimIndex(sprites);
-			var arm_offset = ArmOffsets[anim_index];
-			_arm.transform.localPosition = arm_offset;
 
 			_base_anim_speed = 1 / 5.0f;
 			
@@ -110,6 +111,7 @@ namespace Assets.Player
 			_current_base_animation = sprites;
 			_frame_index = 0;
 			_current_time = 0;
+			_arm.transform.localPosition = ArmOffset(sprites, 0);
 
 			if (_current_temp_animation == null && _sprite_renderer != null && _current_base_animation != null)
 				_sprite_renderer.sprite = _current_base_animation[_frame_index];

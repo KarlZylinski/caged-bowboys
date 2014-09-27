@@ -166,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: .0352396965, y: .0732911825, z: -.349999964}
+  m_LocalPosition: {x: .0352978706, y: .0738880634, z: -.349999964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -179,7 +179,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .156858608, y: 0, z: -3.49000001}
+  m_LocalPosition: {x: .146233097, y: .0226676669, z: -3.49000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -191,7 +191,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .129721165, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -267,7 +267,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .100000001, y: .100000001}
+  m_Size: {x: .0700000003, y: .310000002}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrototype: {fileID: 100000, guid: b9c6bfae87c5ea4429b572d5aeaf7fed, type: 2}
-  ShootSpeed: 300
+  ShootSpeed: 3000
   ShootCooldown: .200000003
 --- !u!114 &11400004
 MonoBehaviour:
@@ -314,18 +314,27 @@ MonoBehaviour:
   - {fileID: 21300012, guid: 9e4e79e9d12b1334f848c0f6518f0786, type: 3}
   - {fileID: 21300014, guid: 9e4e79e9d12b1334f848c0f6518f0786, type: 3}
   - {fileID: 21300016, guid: 9e4e79e9d12b1334f848c0f6518f0786, type: 3}
+  RunSpritesArmOffsets:
+  - {x: .1423406, y: .0859982073}
+  - {x: .1423406, y: .0859982073}
+  - {x: .1423406, y: .0859982073}
+  - {x: .1423406, y: .0859982073}
   IdleSprites:
   - {fileID: 21300000, guid: 12f55f6b247817b40bafdbf135a70683, type: 3}
   - {fileID: 21300002, guid: 12f55f6b247817b40bafdbf135a70683, type: 3}
+  IdleSpritesArmOffsets:
+  - {x: .0452000014, y: .0698727369}
+  - {x: .0452000014, y: .0698727369}
   ClimbSprites:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300004, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300006, guid: b19819bbe61679241bd454371baa7746, type: 3}
-  ArmOffsets:
-  - {x: .1423406, y: .0859982073}
-  - {x: .0324100591, y: .0729801729}
-  - {x: -.0436890088, y: -.132487297}
+  ClimbSpritesArmOffsets:
+  - {x: .0081782341, y: -.0451178588}
+  - {x: -.0354490317, y: -.127740607}
+  - {x: -.0715000629, y: -.0478342809}
+  - {x: -.0354490317, y: -.127740607}
   KillWhenDone: 0
   AnimationSpeed: .100000001
   ManualAdvance: 0

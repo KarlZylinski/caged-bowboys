@@ -30,12 +30,19 @@ public class PlayerControl : MonoBehaviour
         _player_name = "Player" + PlayerNum;
     }
 
-	private bool HitFrom(Transform check_obj)
+	private bool HitFrom(Transform check_obj, string additional_mask = null)
 	{
 		var v = check_obj.position - transform.position;
 		var dir = v.normalized;
 		var distance = v.magnitude;
-		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, 1 << LayerMask.NameToLayer("Ground")).collider != null;
+		var mask =  LayerMask.NameToLayer("Ground");
+
+		if (additional_mask != null)
+			mask = mask | LayerMask.NameToLayer(additional_mask);
+
+		mask = 1 << mask;
+
+		return Physics2D.CircleCast(transform.position + dir * 0.1f, 0.1f, dir, 0.07f, mask).collider != null;
 	}
 
     public void Update()
@@ -55,16 +62,16 @@ public class PlayerControl : MonoBehaviour
 
 		    var climb_movement = movement;
 
-		    if (HitFrom(_left_check_box))
+			if (HitFrom(_left_check_box, "NoClimb"))
 				climb_movement.x = Mathf.Max(climb_movement.x, 0);
 
-			if (HitFrom(_right_check_box))
+			if (HitFrom(_right_check_box, "NoClimb"))
 				climb_movement.x = Mathf.Min(climb_movement.x, 0);
 
-			if (HitFrom(_grounded_check_box))
+			if (HitFrom(_grounded_check_box, "NoClimb"))
 				climb_movement.y = Mathf.Max(climb_movement.y, 0);
-				
-			if (HitFrom(_head_check_box))
+
+			if (HitFrom(_head_check_box, "NoClimb"))
 				climb_movement.y = Mathf.Min(climb_movement.y, 0);
 
 			rigidbody2D.velocity = climb_movement;
