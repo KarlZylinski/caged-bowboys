@@ -13,18 +13,22 @@ public class ArmControl : MonoBehaviour
 	private int _current_barrallel;
 	private bool _fire_held_last_frame;
 	private bool _reloading;
+	public bool DeathHandled;
+	private PlayerGUIScript _gui;
 
 	public void Start()
 	{
+		_player_control = transform.parent.GetComponent<PlayerControl>();
+		_gui = GameObject.Find(_player_control.PlayerName() + "GUI").GetComponent<PlayerGUIScript>();
 		_reloading = false;
 		_fire_held_last_frame = false;
 		_current_barrallel = 0;
 		_loaded = new bool[4];
+		DeathHandled = false;
 		
 		for (var i = 0; i < 4; ++i)
 			_loaded[i] = true;
 
-		_player_control = transform.parent.GetComponent<PlayerControl>();
 		_bullet_spawn_point = transform.FindChild("BulletSpawnPoint");
 		_can_shoot_at = 0;
 	}
@@ -32,6 +36,11 @@ public class ArmControl : MonoBehaviour
 	private bool ClipEmpty()
 	{
 		return _loaded.All(x => !x);
+	}
+
+	public bool Reloading()
+	{
+		return _reloading;
 	}
 
 	private void Fire()
@@ -48,7 +57,10 @@ public class ArmControl : MonoBehaviour
 		}
 
 		if (ClipEmpty())
+		{
 			_reloading = true;
+			_gui.Show();
+		}
 
 		_current_barrallel = (_current_barrallel + 1)%4;
 	}
@@ -58,12 +70,28 @@ public class ArmControl : MonoBehaviour
 		if (_loaded[index])
 			return;
 
+		_gui.LoadBullet(index + 1);
+
 		_loaded[index] = true;
 		// PLAY SOUND
 	}
 
 	public void Update()
 	{
+		if (_player_control.Dead && !DeathHandled)
+		{
+			transform.parent = null;
+			gameObject.AddComponent<Rigidbody2D>();
+			gameObject.AddComponent<BoxCollider2D>();
+			DeathHandled = true;
+			rigidbody2D.AddForce(new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f))* 200.0f);
+			transform.Rotate(new Vector3(0, 0, Random.Range(-25f, 25f)));
+			Destroy(this);
+		}
+
+		if (_player_control.Dead)
+			return;
+
 		var look = new Vector2(Input.GetAxis(_player_control.GetInputName("LookX")), Input.GetAxis(_player_control.GetInputName("LookY")));
 
 		if (look.magnitude > 0.4f)
@@ -89,6 +117,7 @@ public class ArmControl : MonoBehaviour
 			{
 				_current_barrallel = Random.Range(0, 3);
 				_reloading = false;
+				_gui.Hide();
 			}
 
 			Fire();

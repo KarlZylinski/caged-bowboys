@@ -285,6 +285,7 @@ MonoBehaviour:
   JumpForce: 1
   PlayerMaxSpeed: 1
   ClimbDistance: 10
+  Dead: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,6 +300,7 @@ MonoBehaviour:
   BulletPrototype: {fileID: 100000, guid: b9c6bfae87c5ea4429b572d5aeaf7fed, type: 2}
   ShootSpeed: 3000
   ShootCooldown: .200000003
+  DeathHandled: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,7 +334,11 @@ MonoBehaviour:
   ClimbSpritesArmOffsets:
   - {x: -.0715000629, y: -.0478342809}
   - {x: .0081782341, y: -.0451178588}
-  KillWhenDone: 0
+  IdleDeathSprites:
+  - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
+  - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
+  - {fileID: 21300004, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
+  StopWhenDone: 0
   AnimationSpeed: .100000001
   ManualAdvance: 0
 --- !u!114 &11400006

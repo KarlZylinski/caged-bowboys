@@ -18,6 +18,7 @@ public class PlayerControl : MonoBehaviour
 	private Transform _right_check_box;
 	private Transform _head_check_box;
 	private Transform _arm;
+	public bool Dead;
 
 	private Color TintColor()
 	{
@@ -38,6 +39,7 @@ public class PlayerControl : MonoBehaviour
 
 	public void Start()
 	{
+		Dead = false;
 		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 		var tint_color = TintColor();
 
@@ -72,6 +74,9 @@ public class PlayerControl : MonoBehaviour
 
     public void Update()
     {
+	    if (Dead)
+		    return;
+
 		_grounded = HitFrom(_grounded_check_box) && rigidbody2D.velocity.y >= 0;
         var movement = new Vector2(Input.GetAxis(GetInputName("MovementX")), Input.GetAxis(GetInputName("MovementY"))) ;
         var jump_held = Input.GetAxis(GetInputName("Jump")) > 0.5f;

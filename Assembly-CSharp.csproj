@@ -50,9 +50,11 @@
      <Compile Include="Assets\BloodLayerSetter.cs" />
      <Compile Include="Assets\BulletScript.cs" />
      <Compile Include="Assets\FollowPlayers.cs" />
+     <Compile Include="Assets\GUIScript.cs" />
      <Compile Include="Assets\HeadScript.cs" />
      <Compile Include="Assets\Player\ArmControl.cs" />
      <Compile Include="Assets\Player\PlayerControl.cs" />
+     <Compile Include="Assets\PlayerGUIScript.cs" />
      <Compile Include="Assets\TrackedByCamera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

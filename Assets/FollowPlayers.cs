@@ -16,7 +16,7 @@ public class FollowPlayers : MonoBehaviour {
 			++num_tracked;
 		}
 
-		const float cameraHalf = 2.0f;
+		const float cameraHalf = 1.5f;
 		Vector2 first_pos_v2 = first_pos;
 		var wanted_pos = first_pos_v2 + (num_tracked == 0 ? new Vector2(0, 0) : (tracked_added * (1.0f/num_tracked)));
 

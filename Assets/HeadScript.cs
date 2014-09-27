@@ -1,14 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Animator = Assets.Player.Animator;
 
 public class HeadScript : MonoBehaviour {
 	private Collider2D _trigger;
 	public GameObject BloodPrototype;
+	private PlayerControl _player_control;
+	private Animator _animator;
 
 	void Start ()
 	{
+		_player_control = transform.parent.GetComponent<PlayerControl>();
+		_animator = transform.parent.GetComponent<Animator>();
 		_trigger = GetComponent<Collider2D>();
-		gameObject.layer = 18 + int.Parse(transform.parent.GetComponent<PlayerControl>().PlayerNum) - 1;
+		gameObject.layer = 18 + int.Parse(_player_control.PlayerNum) - 1;
 	}
 
 	public void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +29,9 @@ public class HeadScript : MonoBehaviour {
 
 				instance.GetComponent<Rigidbody2D>().AddForce((new Vector2(bullet_direction.x, bullet_direction.y * Random.Range(0.25f, 2f)).normalized * 10.0f));
 			}
+
+			_player_control.Dead = true;
+			_animator.SetDeathAnim();
 
 			Destroy(other.gameObject);
 		}

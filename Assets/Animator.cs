@@ -12,7 +12,8 @@ namespace Assets.Player
 		public Vector2[] IdleSpritesArmOffsets;
 		public Sprite[] ClimbSprites;
 		public Vector2[] ClimbSpritesArmOffsets;
-		public bool KillWhenDone = false;
+		public Sprite[] IdleDeathSprites;
+		public bool StopWhenDone = false;
 
 		public float AnimationSpeed = 1 / 10.0f;
 		private float _current_time;
@@ -25,9 +26,11 @@ namespace Assets.Player
 		private Transform _arm;
 		public bool ManualAdvance;
 		private bool _advance;
+		private bool _stopped;
 
 		public void Start()
 		{
+			_stopped = false;
 			_current_time = 0;
 			_frame_index = 0;
 			_sprite_renderer = GetComponent<SpriteRenderer>();
@@ -52,6 +55,9 @@ namespace Assets.Player
 
 		private void PlayAnimation(bool temp_anim, Sprite[] animation, float speed)
 		{
+			if (_stopped)
+				return;
+
 			_current_time += Time.deltaTime;
 
 			if ((!ManualAdvance && _current_time > speed) || (ManualAdvance && _advance))
@@ -62,22 +68,33 @@ namespace Assets.Player
 
 				if (_frame_index >= animation.Count())
 				{
-					if (KillWhenDone)
+					if (!StopWhenDone)
 					{
-						Destroy(gameObject);
-						return;
+						_frame_index = 0;
+
+						if (temp_anim)
+						{
+							_current_temp_animation = null;
+							animation = _current_base_animation;
+						}
 					}
-
-					_frame_index = 0;
-
-					if (temp_anim)
+					else
 					{
-						_current_temp_animation = null;
-						animation = _current_base_animation;
+						_stopped = true;
 					}
 				}
-				_arm.transform.localPosition = ArmOffset(animation, _frame_index);
-				_sprite_renderer.sprite = animation[_frame_index];
+
+				var arm = _arm.GetComponent<ArmControl>();
+				if (arm != null && !arm.DeathHandled)
+				{
+					var offset = ArmOffset(animation, _frame_index);
+
+					if (offset != Vector2.zero)
+						_arm.transform.localPosition = offset;
+				}
+
+				if (!_stopped)
+					_sprite_renderer.sprite = animation[_frame_index];
 			}
 		}
 
@@ -94,7 +111,7 @@ namespace Assets.Player
 			if (sprites == ClimbSprites)
 				return ClimbSpritesArmOffsets[index];
 
-			throw new NotImplementedException();
+			return Vector2.zero;
 		}
 
 		public void SetBaseAnimation(Sprite[] sprites, float speed)
@@ -111,7 +128,15 @@ namespace Assets.Player
 			_current_base_animation = sprites;
 			_frame_index = 0;
 			_current_time = 0;
-			_arm.transform.localPosition = ArmOffset(sprites, 0);
+
+			var arm = _arm.GetComponent<ArmControl>();
+			if (arm != null && !arm.DeathHandled)
+			{
+				var offset = ArmOffset(sprites, 0);
+
+				if (offset != Vector2.zero)
+					_arm.transform.localPosition = offset;
+			}
 
 			if (_current_temp_animation == null && _sprite_renderer != null && _current_base_animation != null)
 				_sprite_renderer.sprite = _current_base_animation[_frame_index];
@@ -131,6 +156,14 @@ namespace Assets.Player
 			_frame_index = 0;
 			_current_time = 0;
 			_sprite_renderer.sprite = _current_temp_animation[_frame_index];
+		}
+
+		public void SetDeathAnim()
+		{
+			if (_current_base_animation.SequenceEqual(IdleSprites))
+				SetBaseAnimation(IdleDeathSprites, 400);
+
+			StopWhenDone = true;
 		}
 	}
 }

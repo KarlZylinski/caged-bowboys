@@ -43,3 +43,7 @@ TagManager:
     userID: 0
     uniqueID: 0
     locked: 0
+  - name: GUI
+    userID: 1
+    uniqueID: 1802365883
+    locked: 0
