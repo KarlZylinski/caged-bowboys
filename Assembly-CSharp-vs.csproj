@@ -61,7 +61,10 @@
      <Compile Include="Assets\Player\ArmControl.cs" />
      <Compile Include="Assets\Player\PlayerControl.cs" />
      <Compile Include="Assets\PlayerGUIScript.cs" />
+     <Compile Include="Assets\PlayerReadyGraphics.cs" />
      <Compile Include="Assets\PlayerSelector.cs" />
+     <Compile Include="Assets\PressXScript.cs" />
+     <Compile Include="Assets\ReadyScript.cs" />
      <Compile Include="Assets\ScoreKeeper.cs" />
      <Compile Include="Assets\TitleScreen.cs" />
      <Compile Include="Assets\TrackedByCamera.cs" />

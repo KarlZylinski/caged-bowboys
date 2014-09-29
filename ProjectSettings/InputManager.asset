@@ -149,6 +149,22 @@ InputManager:
     axis: 3
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player1_Jump_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .300000012
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Player2_Jump
     descriptiveName: 
     descriptiveNegativeName: 
@@ -163,6 +179,22 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player2_Jump_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .300000012
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 2
     joyNum: 2
   - serializedVersion: 3
     m_Name: Player3_Jump
@@ -181,6 +213,22 @@ InputManager:
     axis: 3
     joyNum: 3
   - serializedVersion: 3
+    m_Name: Player3_Jump_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .300000012
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: Player4_Jump
     descriptiveName: 
     descriptiveNegativeName: 
@@ -197,11 +245,59 @@ InputManager:
     axis: 3
     joyNum: 4
   - serializedVersion: 3
+    m_Name: Player4_Jump_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .300000012
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Player2_Reload1_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player2_Reload1
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 2 button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player3_Reload1_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -229,6 +325,22 @@ InputManager:
     axis: 19
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Player4_Reload1_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player4_Reload1
     descriptiveName: 
     descriptiveNegativeName: 
@@ -244,6 +356,22 @@ InputManager:
     type: 0
     axis: 19
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player1_Reload1_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Player1_Reload1
     descriptiveName: 
@@ -261,6 +389,22 @@ InputManager:
     axis: 19
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player2_Reload2_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player2_Reload2
     descriptiveName: 
     descriptiveNegativeName: 
@@ -277,11 +421,43 @@ InputManager:
     axis: 19
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Player4_Reload2_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 4
+  - serializedVersion: 3
     m_Name: Player4_Reload2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 4 button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Player3_Reload2_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 3
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -309,11 +485,43 @@ InputManager:
     axis: 19
     joyNum: 4
   - serializedVersion: 3
+    m_Name: Player1_Reload2_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Player1_Reload2
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 1 button 3
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player1_Reload3_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -341,11 +549,43 @@ InputManager:
     axis: 19
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player2_Reload3_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player2_Reload3
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 2 button 2
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player3_Reload3_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 1
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -373,6 +613,22 @@ InputManager:
     axis: 19
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Player4_Reload3_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player4_Reload3
     descriptiveName: 
     descriptiveNegativeName: 
@@ -388,6 +644,22 @@ InputManager:
     type: 0
     axis: 19
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player1_Reload4_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 1 button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Player1_Reload4
     descriptiveName: 
@@ -405,6 +677,22 @@ InputManager:
     axis: 19
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player2_Reload4_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 2 button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player2_Reload4
     descriptiveName: 
     descriptiveNegativeName: 
@@ -421,11 +709,43 @@ InputManager:
     axis: 19
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Player3_Reload4_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 3 button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player3_Reload4
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: joystick 3 button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 19
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player4_Reload4_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick 4 button 0
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -469,6 +789,22 @@ InputManager:
     axis: 4
     joyNum: 1
   - serializedVersion: 3
+    m_Name: Player1_Shoot_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Player2_Shoot
     descriptiveName: 
     descriptiveNegativeName: 
@@ -483,6 +819,22 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
+    joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player2_Shoot_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 2
     joyNum: 2
   - serializedVersion: 3
     m_Name: Player3_Shoot
@@ -501,6 +853,22 @@ InputManager:
     axis: 4
     joyNum: 3
   - serializedVersion: 3
+    m_Name: Player3_Shoot_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 2
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: Player4_Shoot
     descriptiveName: 
     descriptiveNegativeName: 
@@ -515,6 +883,38 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Player4_Shoot_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 0
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: .00100000005
+    sensitivity: 1000
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 2
+    joyNum: 4
+  - serializedVersion: 3
+    m_Name: Player4_LookX_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
     joyNum: 4
   - serializedVersion: 3
     m_Name: Player4_LookX
@@ -533,6 +933,22 @@ InputManager:
     axis: 2
     joyNum: 4
   - serializedVersion: 3
+    m_Name: Player3_LookX_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: Player3_LookX
     descriptiveName: 
     descriptiveNegativeName: 
@@ -548,6 +964,22 @@ InputManager:
     type: 2
     axis: 2
     joyNum: 3
+  - serializedVersion: 3
+    m_Name: Player2_LookX_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Player2_LookX
     descriptiveName: 
@@ -565,6 +997,22 @@ InputManager:
     axis: 2
     joyNum: 2
   - serializedVersion: 3
+    m_Name: Player1_LookX_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 1
+  - serializedVersion: 3
     m_Name: Player1_LookX
     descriptiveName: 
     descriptiveNegativeName: 
@@ -580,6 +1028,22 @@ InputManager:
     type: 2
     axis: 2
     joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player4_LookY_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 4
   - serializedVersion: 3
     m_Name: Player4_LookY
     descriptiveName: 
@@ -597,6 +1061,22 @@ InputManager:
     axis: 5
     joyNum: 4
   - serializedVersion: 3
+    m_Name: Player3_LookY_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 3
+  - serializedVersion: 3
     m_Name: Player3_LookY
     descriptiveName: 
     descriptiveNegativeName: 
@@ -613,6 +1093,22 @@ InputManager:
     axis: 5
     joyNum: 3
   - serializedVersion: 3
+    m_Name: Player2_LookY_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 2
+  - serializedVersion: 3
     m_Name: Player2_LookY
     descriptiveName: 
     descriptiveNegativeName: 
@@ -628,6 +1124,22 @@ InputManager:
     type: 2
     axis: 5
     joyNum: 2
+  - serializedVersion: 3
+    m_Name: Player1_LookY_X360
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: .100000001
+    sensitivity: 1
+    snap: 0
+    invert: 1
+    type: 2
+    axis: 4
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Player1_LookY
     descriptiveName: 

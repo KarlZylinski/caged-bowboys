@@ -21,6 +21,7 @@ public class PlayerControl : MonoBehaviour
 	public bool Dead;
 	public float TimeOfDeath;
 	private Transform _ground_check_box;
+    private PlayerInputType _input_type;
 
 	private Color TintColor()
 	{
@@ -47,6 +48,23 @@ public class PlayerControl : MonoBehaviour
 
 	public void Start()
 	{
+	    var player_selector = GameObject.Find("PlayerSelector");
+
+	    if (player_selector != null)
+	    {
+	        var type = player_selector.GetComponent<PlayerSelector>().InputTypes[int.Parse(PlayerNum) - 1];
+
+	        if (type == PlayerInputType.None)
+	        {
+	            Destroy(gameObject);
+	            return;
+	        }
+
+	        _input_type = type;
+	    }
+        else
+            _input_type = PlayerInputType.Ps4;
+
 		TimeOfDeath = 0;
 		Dead = false;
 		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
@@ -203,9 +221,9 @@ public class PlayerControl : MonoBehaviour
 	    }
     }
 
-    public string GetInputName(string axis)
+    public string GetInputName(string input)
     {
-        return _player_name + "_" + axis;
+        return _player_name + "_" + input + (_input_type == PlayerInputType.X360 && !input.Contains("Movement") && !input.Contains("Climb") ? "_X360" : "");
     }
 
     private static Vector3 CalculateForceToAdd(float movement, bool grounded)
