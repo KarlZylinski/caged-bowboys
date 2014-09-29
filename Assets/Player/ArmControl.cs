@@ -66,6 +66,12 @@ public class ArmControl : MonoBehaviour
 			_audio_source.pitch = Random.Range(0.95f, 1.05f);
 			_audio_source.Play();
 		}
+        else if (!_loaded[_current_barrallel])
+        {
+            _audio_source.clip = EmptyClipSound;
+            _audio_source.pitch = Random.Range(0.95f, 1.05f);
+            _audio_source.Play();
+        }
 
 		if (ClipEmpty())
 		{
@@ -90,10 +96,33 @@ public class ArmControl : MonoBehaviour
 		_loaded[index] = true;
 	}
 
-	private Vector2 FindSpawnPoint()
+	private Vector2 FindSpawnPoint(int try_num = 0)
 	{
 		var spawn_points = GameObject.FindGameObjectsWithTag("SpawnPoint");
-		return spawn_points[Random.Range(0, spawn_points.Count() - 1)].transform.position;
+		var pos = spawn_points[Random.Range(0, spawn_points.Count() - 1)].transform.position;
+
+	    var all_players = GameObject.FindGameObjectsWithTag("Player");
+
+	    if (try_num == 20)
+	        return pos;
+
+        foreach (var player in all_players)
+	    {
+	        if (player == _player_control.gameObject)
+                continue;
+
+	        var control = player.GetComponent<PlayerControl>();
+
+	        if (control == null)
+	            continue;
+
+	        var distance_to_player = (player.transform.position - pos).magnitude;
+
+	        if (distance_to_player < 0.5f)
+                return FindSpawnPoint(try_num++);
+	    }
+
+	   return pos;
 	}
 
 	public void Update()
