@@ -52,7 +52,6 @@ public class HeadScript : MonoBehaviour {
 
 			_player_control.Dead = true;
 			_player_control.TimeOfDeath = Time.time;
-			_player_control.rigidbody2D.velocity = Vector2.zero;
 
 			var score = GameObject.Find("Score").GetComponent<ScoreKeeper>().Score;
 			score[other.gameObject.layer - 13]++;

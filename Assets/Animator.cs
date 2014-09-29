@@ -13,8 +13,10 @@ namespace Assets.Player
 		public Sprite[] ClimbSprites;
 		public Vector2[] ClimbSpritesArmOffsets;
 		public Sprite[] IdleDeathSprites;
-		public Sprite[] RunDeathSprites;
-		public Sprite[] ClimbDeathSprites;
+        public Sprite[] RunDeathSprites;
+        public Sprite[] RunDeathSprites2;
+        public Sprite[] ClimbDeathSprites;
+        public Sprite[] ClimbDeathSprites2;
 		public bool StopWhenDone = false;
 	    public bool RandomStart = false;
 
@@ -189,11 +191,11 @@ namespace Assets.Player
 				SetBaseAnimation(IdleDeathSprites, 400);
 
 			if (_current_base_animation.SequenceEqual(RunSprites))
-				SetBaseAnimation(RunDeathSprites, 100);
+                SetBaseAnimation(UnityEngine.Random.Range(1, 3) == 1 ? RunDeathSprites2 : RunDeathSprites, 100);
 
 			if (_current_base_animation.SequenceEqual(ClimbSprites))
 			{
-				SetBaseAnimation(ClimbDeathSprites, 200);
+				SetBaseAnimation(UnityEngine.Random.Range(1, 2) == 1 ? ClimbDeathSprites : ClimbDeathSprites2, 200);
 				_hide_when_done = true;
 			}
 				

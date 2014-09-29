@@ -161,7 +161,11 @@ public class PlayerControl : MonoBehaviour
     public void Update()
     {
 	    if (Dead)
-	    {			
+	    {
+	        if (_climbing)
+	            rigidbody2D.velocity = Vector2.zero;
+
+	        rigidbody2D.velocity = rigidbody2D.velocity*0.9f;
 			return;
 	    }
 

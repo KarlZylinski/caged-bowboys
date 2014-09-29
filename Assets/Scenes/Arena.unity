@@ -1035,6 +1035,19 @@ MonoBehaviour:
   - {fileID: 21300006, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300008, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300010, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  RunDeathSprites2:
+  - {fileID: 21300000, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300002, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300004, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300006, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300008, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300010, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300012, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300014, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300016, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300018, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300020, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300022, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
   ClimbDeathSprites:
   - {fileID: 21300000, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300002, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
@@ -1043,6 +1056,15 @@ MonoBehaviour:
   - {fileID: 21300008, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300010, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300012, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  ClimbDeathSprites2:
+  - {fileID: 21300000, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300002, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300004, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300006, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300008, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300010, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300012, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300014, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
   StopWhenDone: 0
   RandomStart: 1
   AnimationSpeed: .100000001
@@ -1665,7 +1687,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -1808,7 +1832,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -1951,7 +1977,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -2057,7 +2085,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -2512,7 +2542,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -2749,6 +2781,19 @@ MonoBehaviour:
   - {fileID: 21300006, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300008, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300010, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  RunDeathSprites2:
+  - {fileID: 21300000, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300002, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300004, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300006, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300008, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300010, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300012, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300014, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300016, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300018, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300020, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300022, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
   ClimbDeathSprites:
   - {fileID: 21300000, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300002, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
@@ -2757,6 +2802,15 @@ MonoBehaviour:
   - {fileID: 21300008, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300010, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300012, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  ClimbDeathSprites2:
+  - {fileID: 21300000, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300002, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300004, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300006, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300008, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300010, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300012, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300014, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
   StopWhenDone: 0
   RandomStart: 1
   AnimationSpeed: .100000001
@@ -2920,6 +2974,19 @@ MonoBehaviour:
   - {fileID: 21300006, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300008, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300010, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  RunDeathSprites2:
+  - {fileID: 21300000, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300002, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300004, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300006, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300008, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300010, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300012, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300014, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300016, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300018, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300020, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300022, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
   ClimbDeathSprites:
   - {fileID: 21300000, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300002, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
@@ -2928,6 +2995,15 @@ MonoBehaviour:
   - {fileID: 21300008, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300010, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300012, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  ClimbDeathSprites2:
+  - {fileID: 21300000, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300002, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300004, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300006, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300008, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300010, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300012, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300014, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
   StopWhenDone: 0
   RandomStart: 1
   AnimationSpeed: .100000001
@@ -4759,7 +4835,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1157486380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .0115194321, y: 1.76095462, z: 3}
+  m_LocalPosition: {x: .0115194321, y: 1.753052, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5118,6 +5194,19 @@ MonoBehaviour:
   - {fileID: 21300006, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300008, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
   - {fileID: 21300010, guid: e13d106e70b4f77409c5acbdf8156068, type: 3}
+  RunDeathSprites2:
+  - {fileID: 21300000, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300002, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300004, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300006, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300008, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300010, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300012, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300014, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300016, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300018, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300020, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
+  - {fileID: 21300022, guid: 3602ba71e56c3d844a86f3fd584c1ef4, type: 3}
   ClimbDeathSprites:
   - {fileID: 21300000, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300002, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
@@ -5126,6 +5215,15 @@ MonoBehaviour:
   - {fileID: 21300008, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300010, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
   - {fileID: 21300012, guid: f7aeca19e9ca32c439841a0590758858, type: 3}
+  ClimbDeathSprites2:
+  - {fileID: 21300000, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300002, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300004, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300006, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300008, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300010, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300012, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
+  - {fileID: 21300014, guid: 470036a8a6a97754d83ce914218e672e, type: 3}
   StopWhenDone: 0
   RandomStart: 1
   AnimationSpeed: .100000001
@@ -5290,7 +5388,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
@@ -7551,7 +7651,9 @@ MonoBehaviour:
   ClimbSpritesArmOffsets: []
   IdleDeathSprites: []
   RunDeathSprites: []
+  RunDeathSprites2: []
   ClimbDeathSprites: []
+  ClimbDeathSprites2: []
   StopWhenDone: 0
   RandomStart: 0
   AnimationSpeed: .0500000007
