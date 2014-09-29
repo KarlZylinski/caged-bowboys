@@ -41,6 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 0
+  NotReadySprite: {fileID: 21300000, guid: 1594e885bb6c39b4ba3cc6d3d902d923, type: 3}
   ReadySprite: {fileID: 21300000, guid: 21ef5028405226c4a87e85e8e6586b08, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:

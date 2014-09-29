@@ -22,8 +22,9 @@ public class PlayerControl : MonoBehaviour
 	public float TimeOfDeath;
 	private Transform _ground_check_box;
     private PlayerInputType _input_type;
+    private bool _jump_held_last_frame;
 
-	private Color TintColor()
+    private Color TintColor()
 	{
 		if (PlayerNum == "1")
 			return Color.white;
@@ -67,6 +68,7 @@ public class PlayerControl : MonoBehaviour
 
 		TimeOfDeath = 0;
 		Dead = false;
+	    _jump_held_last_frame = false;
 		var all_sprite_renderers = gameObject.GetComponentsInChildren<SpriteRenderer>();
 		var tint_color = TintColor();
 
@@ -172,11 +174,13 @@ public class PlayerControl : MonoBehaviour
 	    {
 		    ClimbHeld(movement);
 	    }
-        else if (jump_held && _grounded)
+        else if (jump_held && !_jump_held_last_frame && _grounded)
         {
             rigidbody2D.AddForce(new Vector3(0, JumpForce, 0), ForceMode2D.Impulse);
             _grounded = false;
         }
+
+        _jump_held_last_frame = jump_held;
 
 	    if (!climb_held && _climbing)
 	    {
