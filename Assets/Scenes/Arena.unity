@@ -1022,8 +1022,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
   ClimbSpritesArmOffsets:
-  - {x: -.0715000629, y: -.0478342809}
-  - {x: .0081782341, y: -.0451178588}
+  - {x: -.0450886488, y: .0503650904}
+  - {x: -.0429189205, y: .0750594735}
   IdleDeathSprites:
   - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
@@ -2768,8 +2768,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
   ClimbSpritesArmOffsets:
-  - {x: -.0715000629, y: -.0478342809}
-  - {x: .0081782341, y: -.0451178588}
+  - {x: -.0450886488, y: .0503650904}
+  - {x: -.0429189205, y: .0750594735}
   IdleDeathSprites:
   - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
@@ -2961,8 +2961,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
   ClimbSpritesArmOffsets:
-  - {x: -.0715000629, y: -.0478342809}
-  - {x: .0081782341, y: -.0451178588}
+  - {x: -.0450886488, y: .0503650904}
+  - {x: -.0429189205, y: .0750594735}
   IdleDeathSprites:
   - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
@@ -5137,7 +5137,7 @@ Transform:
   m_PrefabInternal: {fileID: 2051219939}
   m_GameObject: {fileID: 1349476560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .762439549, y: -.848411679, z: -.930000007}
+  m_LocalPosition: {x: .682218075, y: -.867879212, z: -.930000007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1644269834}
@@ -5181,8 +5181,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b19819bbe61679241bd454371baa7746, type: 3}
   - {fileID: 21300002, guid: b19819bbe61679241bd454371baa7746, type: 3}
   ClimbSpritesArmOffsets:
-  - {x: -.0715000629, y: -.0478342809}
-  - {x: .0081782341, y: -.0451178588}
+  - {x: -.0450886488, y: .0503650904}
+  - {x: -.0429189205, y: .0750594735}
   IdleDeathSprites:
   - {fileID: 21300000, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
   - {fileID: 21300002, guid: dcdee95d30b3ba948923e167f8ff2f2f, type: 3}
@@ -6707,7 +6707,7 @@ Transform:
   m_PrefabInternal: {fileID: 2051219939}
   m_GameObject: {fileID: 1723151710}
   m_LocalRotation: {x: 0, y: 0, z: -.707106829, w: .707106829}
-  m_LocalPosition: {x: .0352978706, y: .0738880634, z: -.349999964}
+  m_LocalPosition: {x: .0192940831, y: .0716032386, z: -.349999964}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2126847221}
@@ -7461,11 +7461,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .762439549
+      value: .682218075
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.848411679
+      value: -.867879212
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7534,6 +7534,19 @@ Prefab:
     - target: {fileID: 11400004, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
       propertyPath: RandomStart
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12f55f6b247817b40bafdbf135a70683,
+        type: 3}
+    - target: {fileID: 400004, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .0192940831
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .0716032386
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18620ce692dcaf740abf314ff2e3baf7, type: 2}

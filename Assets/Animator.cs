@@ -191,11 +191,11 @@ namespace Assets.Player
 				SetBaseAnimation(IdleDeathSprites, 400);
 
 			if (_current_base_animation.SequenceEqual(RunSprites))
-                SetBaseAnimation(UnityEngine.Random.Range(1, 3) == 1 ? RunDeathSprites2 : RunDeathSprites, 100);
+                SetBaseAnimation(UnityEngine.Random.Range(1, 4) == 1 ? RunDeathSprites2 : RunDeathSprites, 100);
 
 			if (_current_base_animation.SequenceEqual(ClimbSprites))
 			{
-				SetBaseAnimation(UnityEngine.Random.Range(1, 2) == 1 ? ClimbDeathSprites : ClimbDeathSprites2, 200);
+				SetBaseAnimation(UnityEngine.Random.Range(1, 3) == 1 ? ClimbDeathSprites : ClimbDeathSprites2, 200);
 				_hide_when_done = true;
 			}
 				

@@ -54,8 +54,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .419530064, y: .338224143}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: PlayerClimb_1
       rect:
@@ -64,8 +64,8 @@ TextureImporter:
         y: 0
         width: 48
         height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: .589614093, y: .311888546}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
