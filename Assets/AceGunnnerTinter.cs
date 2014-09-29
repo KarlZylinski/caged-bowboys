@@ -35,7 +35,7 @@ public class AceGunnnerTinter : MonoBehaviour {
 			return Color.white;
 
 		if (i == 1)
-			return Color.green;
+			return new Color(0.5f, 0.9f, 0.6f);
 
 		if (i == 2)
 			return Color.red;

@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
 			return Color.white;
 
 		if (PlayerNum == "2")
-			return Color.green;
+			return new Color(0.5f, 0.9f, 0.6f);
 
 		if (PlayerNum == "3")
 			return Color.red;
