@@ -47,6 +47,9 @@ public class HeadScript : MonoBehaviour {
 				_audio_source.Play();
 			}
 
+			if (_player_control.Dead)
+				return;
+
 			_player_control.Dead = true;
 			_player_control.TimeOfDeath = Time.time;
 			_player_control.rigidbody2D.velocity = Vector2.zero;

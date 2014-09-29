@@ -31,10 +31,10 @@ public class PlayerControl : MonoBehaviour
 			return new Color(0.5f, 0.9f, 0.6f);
 
 		if (PlayerNum == "3")
-			return Color.red;
+            return new Color(0.9f, 0.5f, 0.6f);
 
 		if (PlayerNum == "4")
-			return Color.yellow;
+            return new Color(0.26f, 0.86f, 0.89f);
 
 		throw new NotImplementedException();
 	}

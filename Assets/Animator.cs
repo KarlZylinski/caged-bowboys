@@ -16,6 +16,7 @@ namespace Assets.Player
 		public Sprite[] RunDeathSprites;
 		public Sprite[] ClimbDeathSprites;
 		public bool StopWhenDone = false;
+	    public bool RandomStart = false;
 
 		public float AnimationSpeed = 1 / 10.0f;
 		private float _current_time;
@@ -34,7 +35,7 @@ namespace Assets.Player
 		public void Start()
 		{
 			_stopped = false;
-			_current_time = 0;
+			_current_time = RandomStart ? UnityEngine.Random.Range(0.0f, AnimationSpeed) : 0;
 			_frame_index = 0;
 			_sprite_renderer = GetComponent<SpriteRenderer>();
 			_current_base_animation = IdleSprites;
