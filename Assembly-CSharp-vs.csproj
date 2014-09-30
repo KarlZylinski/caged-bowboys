@@ -53,6 +53,7 @@
      <Compile Include="Assets\BulletScript.cs" />
      <Compile Include="Assets\ControlScreen.cs" />
      <Compile Include="Assets\EndGame.cs" />
+     <Compile Include="Assets\FlashingSign.cs" />
      <Compile Include="Assets\FollowPlayers.cs" />
      <Compile Include="Assets\GUIScript.cs" />
      <Compile Include="Assets\HeadScript.cs" />
