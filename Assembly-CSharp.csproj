@@ -64,6 +64,7 @@
      <Compile Include="Assets\PlayerReadyGraphics.cs" />
      <Compile Include="Assets\PlayerSelector.cs" />
      <Compile Include="Assets\PressXScript.cs" />
+     <Compile Include="Assets\ReadyCharacter.cs" />
      <Compile Include="Assets\ReadyScript.cs" />
      <Compile Include="Assets\ScoreKeeper.cs" />
      <Compile Include="Assets\TitleScreen.cs" />

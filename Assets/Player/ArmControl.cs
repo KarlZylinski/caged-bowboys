@@ -118,7 +118,7 @@ public class ArmControl : MonoBehaviour
 
 	        var distance_to_player = (player.transform.position - pos).magnitude;
 
-	        if (distance_to_player < 0.5f)
+	        if (distance_to_player < 1.0f)
                 return FindSpawnPoint(try_num++);
 	    }
 

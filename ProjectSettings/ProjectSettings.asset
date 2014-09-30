@@ -106,7 +106,7 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: ffec3513143333540b85fad0f4cf022b, type: 3}
       m_Size: 128
   - m_BuildTarget: Standalone
     m_Icons:

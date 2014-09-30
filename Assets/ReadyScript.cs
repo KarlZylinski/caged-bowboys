@@ -6,6 +6,7 @@ public class ReadyScript : MonoBehaviour
     private Sprite _default_sprite;
     private SpriteRenderer _renderer;
     private TitleScreen _title_screen;
+    private PlayerSelector _player_selector;
     public Sprite NotReadySprite;
     public Sprite ReadySprite;
 
@@ -13,6 +14,7 @@ public class ReadyScript : MonoBehaviour
     {
         _renderer = GetComponent<SpriteRenderer>();
         _title_screen = GameObject.Find("Main Camera").GetComponent<TitleScreen>();
+        _player_selector = GameObject.Find("PlayerSelector").GetComponent<PlayerSelector>();
     }
 
     void Update()
@@ -20,5 +22,7 @@ public class ReadyScript : MonoBehaviour
         _renderer.sprite = _title_screen.Ready[PlayerNum]
             ? ReadySprite
             : NotReadySprite;
+
+        _renderer.enabled = _player_selector.InputTypes[PlayerNum] != PlayerInputType.None;
     }
 }

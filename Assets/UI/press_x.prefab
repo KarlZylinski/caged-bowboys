@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.73467445, y: -1.10347342, z: 0}
+  m_LocalPosition: {x: -2.14506078, y: -1.16000009, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNum: 0
-  XBox360Sprite: {fileID: 21300000, guid: dde0b3a2cc6aac24daefab62ad8df63d, type: 3}
-  Ps4Sprite: {fileID: 21300000, guid: 14becb572e2245c4fb01b224fbbb1a24, type: 3}
+  XBox360Sprite: {fileID: 21300000, guid: 59428734e22b54e47a16df497f98f9d4, type: 3}
+  Ps4Sprite: {fileID: 21300000, guid: 7d5389917ef8cd14c888bf5b3ec8d450, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -63,7 +63,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5346777814369b741b821998b4423757, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9c1cdf76f643fd45975173e3771d41d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
